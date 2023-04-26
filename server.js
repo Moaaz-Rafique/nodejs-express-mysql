@@ -4,10 +4,12 @@ const cors = require("cors");
 
 const app = express();
 
+// var corsOptions = {
+//   origin: "http://localhost:8081"
+// };
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "*"
 };
-
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
@@ -22,6 +24,7 @@ app.get("/", (req, res) => {
 });
 
 require("./app/routes/tutorial.routes.js")(app);
+require("./app/routes/user.routes.js")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
