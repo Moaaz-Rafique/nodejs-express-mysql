@@ -3,12 +3,13 @@ const User = require("../models/user.model.js");
 // Create and Save a new User
 exports.create = (req, res) => {
   // Validate request
+
   if (!req.body) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
   }
-
+  // console.log("mzLog",req)
   // Create a User
   const user = new User({
     name: req.body.name,
@@ -20,6 +21,7 @@ exports.create = (req, res) => {
   User.create(user, (err, data) => {
     if (err)
       res.status(500).send({
+        error:err,
         message:
           err.message || "Some error occurred while creating the User."
       });
