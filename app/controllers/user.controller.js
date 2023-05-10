@@ -130,3 +130,15 @@ exports.deleteAll = (req, res) => {
     else res.send({ message: `All Users were deleted successfully!` });
   });
 };
+
+// Delete all Users from the database.
+exports.loginuser = (req, res) => {
+  User.loginuser((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Login failed"
+      });
+    else res.send({ data, message: `Login Successful` });
+  });
+};
