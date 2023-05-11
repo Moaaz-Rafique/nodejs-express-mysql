@@ -91,12 +91,15 @@ Restaurant.getAllPublished = result => {
 };
 
 Restaurant.updateById = (id, restaurant, result) => {
+  // console.log("kill me now: ");
+
   sql.query(
-    "UPDATE restaurants SET name = ?, city = ?, loc = ?, avialable_hours = ?, date = ?, userID = ? WHERE id = ?",
-    [restaurant.name, restaurant.city, restaurant.loc,restaurant.available_hours, userID, id],
+    "UPDATE restaurants SET name = ?, city = ?, loc = ?, available_hours = ?, date = ?, userID = ? WHERE id = ? ",
+    [restaurant.name, restaurant.city, restaurant.loc,restaurant.available_hours,restaurant.date, restaurant.userID, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
+        err
         result(null, err);
         return;
       }
