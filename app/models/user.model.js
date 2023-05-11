@@ -21,7 +21,7 @@ User.create = (newUser, result) => {
 };
 
 User.findById = (id, result) => {
-  sql.query(`SELECT * FROM users WHERE id = ${id}`, (err, res) => {
+  sql.query(`SELECT * FROM users WHERE iduser = ${id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -91,7 +91,7 @@ User.getAllPublished = result => {
 
 User.updateById = (id, user, result) => {
   sql.query(
-    "UPDATE users SET name = ?, email = ?, password = ? WHERE id = ?",
+    "UPDATE users SET name = ?, email = ?, password = ? WHERE iduser = ?",
     [user.name, user.email, user.password, id],
     (err, res) => {
       if (err) {
@@ -113,7 +113,7 @@ User.updateById = (id, user, result) => {
 };
 
 User.remove = (id, result) => {
-  sql.query("DELETE FROM users WHERE id = ?", id, (err, res) => {
+  sql.query("DELETE FROM users WHERE iduser = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

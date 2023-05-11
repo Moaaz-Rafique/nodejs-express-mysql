@@ -52,7 +52,14 @@ Restaurant.findById = (id, result) => {
 };
 
 Restaurant.getAll = (name, result) => {
-  let query = "SELECT * FROM restaurants";
+  let query = `
+    SELECT restaurants.*, 
+        SUM(reviews.rating) AS sum_of_ratings, 
+        COUNT(reviews.id) AS number_of_reviews 
+    FROM restaurants 
+    LEFT JOIN reviews ON restaurants.id = reviews.restaurant_id 
+    GROUP BY restaurants.id;  
+  `;
 
   if (name) {
     query += ` WHERE name LIKE '%${name}%'`;
