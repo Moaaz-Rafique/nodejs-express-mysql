@@ -17,6 +17,7 @@ exports.create = (req, res) => {
     available_hours: req.body.available_hours,
     date:req.body.date,
     userID: req.body.userID,    
+    menu: req.body.menu,    
   });
   
   // Save Restaurant in the database

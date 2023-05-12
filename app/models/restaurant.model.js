@@ -16,6 +16,7 @@ const Restaurant = function(rest) {
   this.available_hours=JSON.stringify(rest.available_hours);
   this.date = rest.date
   this.userID = rest.userID;
+  this.menu = JSON.stringify(rest.menu);
 };
 
 Restaurant.create = (newRest, result) => {
@@ -94,8 +95,8 @@ Restaurant.updateById = (id, restaurant, result) => {
   // console.log("kill me now: ");
 
   sql.query(
-    "UPDATE restaurants SET name = ?, city = ?, loc = ?, available_hours = ?, date = ?, userID = ? WHERE id = ? ",
-    [restaurant.name, restaurant.city, restaurant.loc,restaurant.available_hours,restaurant.date, restaurant.userID, id],
+    "UPDATE restaurants SET name = ?, city = ?, loc = ?, available_hours = ?, date = ?, userID = ?,menu = ? WHERE id = ? ",
+    [restaurant.name, restaurant.city, restaurant.loc,restaurant.available_hours,restaurant.date, restaurant.userID,restaurant.menu, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
