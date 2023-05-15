@@ -5,6 +5,7 @@ const User = function(user) {
   this.name = user.name;
   this.email = user.email;
   this.password = user.password;
+  this.DOB = user.DOB;
 };
 
 User.create = (newUser, result) => {
