@@ -25,7 +25,6 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
 });
 
-require("./app/routes/tutorial.routes.js")(app);
 require("./app/routes/user.routes.js")(app);
 require("./app/routes/restaurant.routes.js")(app);
 require("./app/routes/menu.routes.js")(app);
