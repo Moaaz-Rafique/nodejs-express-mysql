@@ -14,6 +14,7 @@ const Review = function(rest) {
   this.review = rest.review;
   this.restaurant_id = rest.restaurant_id
   this.userID = rest.userID;
+  this.selectedPlate = rest.selectedPlate;
 };
 
 Review.create = (newRest, result) => {
@@ -83,8 +84,8 @@ Review.getAllPublished = result => {
 
 Review.updateById = (id, review, result) => {
   sql.query(
-    "UPDATE reviews SET rating = ?, review = ?, loc = ?, restaurant_id = ?, userID = ? WHERE id = ?",
-    [review.rating, review.review, review.restaurant_id, userID, id],
+    "UPDATE reviews SET rating = ?, review = ?, loc = ?, restaurant_id = ?, userID = ?, selectedPlate = ? WHERE id = ?",
+    [review.rating, review.review, review.restaurant_id, userID,selectedPlate, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);

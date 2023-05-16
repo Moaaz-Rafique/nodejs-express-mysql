@@ -16,6 +16,7 @@ exports.create = (req, res) => {
     review: req.body.review,    
     restaurant_id: req.body.restaurant_id,
     userID: req.body.userID,
+    selectedPlate: req.body.selectedPlate
   });
 
   // Save Review in the database
